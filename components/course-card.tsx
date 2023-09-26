@@ -14,7 +14,7 @@ interface CourseCardProps {
 
 export const CourseCard = ({ id, title, imageUrl, price }: CourseCardProps) => {
   return (
-    <Link href={`/courses/${id}`}>
+    <Link href={'/'}>
       <div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
         <div className="relative w-full aspect-video rounded-md overflow-hidden">
           <Image fill className="object-cover" alt={title} src={imageUrl} />
@@ -27,11 +27,15 @@ export const CourseCard = ({ id, title, imageUrl, price }: CourseCardProps) => {
           <div className="my-3 flex items-center gap-x-2 text-sm md:text-xs">
             <div className="flex items-center gap-x-1 text-slate-500">
               <IconBadge size="sm" icon={BookOpen} />
-              <span>4 Chapters</span>
+              <span>{Math.floor(Math.random() * 10)} Chapters</span>
             </div>
           </div>
 
-          <CourseProgress variant="success" size="sm" value={100} />
+          <CourseProgress
+            variant={Math.floor(Math.random() * 100) === 100 ? 'success' : 'default'}
+            size="sm"
+            value={Math.floor(Math.random() * 100)}
+          />
         </div>
       </div>
     </Link>

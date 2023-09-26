@@ -3,7 +3,7 @@ import { db } from '@/lib/db';
 
 export async function POST(req: Request) {
   try {
-    const { title } = await req.json();
+    const { title, imageUrl } = await req.json();
 
     const course = await db.course.create({
       data: {
@@ -11,7 +11,7 @@ export async function POST(req: Request) {
         title,
         description:
           'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,',
-        imageUrl: 'https://www.codespot.org/assets/cover/web-development-courses.jpg',
+        imageUrl,
         price: 75.5,
       },
     });

@@ -16,6 +16,7 @@ const formSchema = z.object({
   title: z.string().min(1, {
     message: 'Title is required',
   }),
+  imageUrl: z.string(),
 });
 
 const CreatePage = () => {
@@ -25,6 +26,7 @@ const CreatePage = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       title: '',
+      imageUrl: '',
     },
   });
 
@@ -54,7 +56,21 @@ const CreatePage = () => {
                   <FormControl>
                     <Input disabled={isSubmitting} {...field} />
                   </FormControl>
-                  <FormDescription>What will you teach in this course?</FormDescription>
+                  <FormDescription>What is this course all about?</FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="imageUrl"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Course image </FormLabel>
+                  <FormControl>
+                    <Input disabled={isSubmitting} {...field} />
+                  </FormControl>
+                  <FormDescription>Paste the image url of this course</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
