@@ -16,17 +16,7 @@ export const CoursesList = ({ items }: CoursesListProps) => {
           <CourseCard key={item.id} id={item.id} title={item.title} imageUrl={item.imageUrl!} price={item.price!} />
         ))}
       </div>
-      {items.length === 0 && (
-        <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
-          <CourseCard
-            key="key-id-dummy"
-            id="key-id-dummy"
-            title="Dummy title"
-            imageUrl="https://miro.medium.com/v2/resize:fit:700/1*80bqULFI-Ia_bgu62lr6Dg.png"
-            price={35.8}
-          />
-        </div>
-      )}
+      {items.length === 0 && <div className="text-center text-sm text-muted-foreground mt-10">No courses found</div>}
     </div>
   );
 };
