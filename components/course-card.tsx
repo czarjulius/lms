@@ -23,7 +23,7 @@ export const CourseCard = ({ id, title, imageUrl, price }: CourseCardProps) => {
           <div className="text-lg md:text-base font-medium group-hover:text-sky-700 transition line-clamp-2">
             {title}
           </div>
-          <p className="text-xs text-muted-foreground">frontend category</p>
+          <p className="text-xs text-muted-foreground">web development</p>
           <div className="my-3 flex items-center gap-x-2 text-sm md:text-xs">
             <div className="flex items-center gap-x-1 text-slate-500">
               <IconBadge size="sm" icon={BookOpen} />
